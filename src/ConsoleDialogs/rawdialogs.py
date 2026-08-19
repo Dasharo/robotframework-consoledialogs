@@ -119,7 +119,7 @@ class RawSingleSelectionDialog(object):
                 intresult = intresult - 1
                 if intresult < 0 or intresult >= len(self.values):
                     raise RuntimeError()
-                return intresult
+                return self.values[intresult]
             except Exception:
                 print("Invalid selection")
 
@@ -137,6 +137,9 @@ class RawMultiSelectionDialog(object):
             message = "Select zero or more items from the option list by entering a comma-separated list of numbers"
             show_message(message + '\r\n' + '\r\n'.join(lines))
             result = input('> ')
+            if not result.strip():
+                # Selecting no value is fine
+                return []
             try:
                 result_list = [x.strip() for x in result.split(',')]
                 int_results = [(int(x)-1) for x in result_list]
