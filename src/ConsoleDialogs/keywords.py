@@ -14,7 +14,7 @@ except ImportError:
     logger.warn("Failed to load curses module - falling back to raw input mode")
     curses_available = False
 
-from ConsoleDialogs.rawdialogs import RawMessageDialog, RawPassFailDialog, RawInputDialog, RawSingleSelectionDialog
+from ConsoleDialogs.rawdialogs import RawMessageDialog, RawPassFailDialog, RawInputDialog, RawSingleSelectionDialog, RawMultiSelectionDialog
 
 class ConsoleKeywords(object):
 
